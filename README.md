@@ -6,6 +6,46 @@ After we successfully loaded embeddings into OpenSearch, we will then start quer
 
 You can use `--bedrock-model-id` parameter, to seamlessly choose one of the available foundation model in Amazon Bedrock, that defaults to [Anthropic Claude v2](https://aws.amazon.com/bedrock/claude/) and can be replaced to any other model from any other model provider to choose your best performing foundation model.
 
+## Project Structure
+
+```
+├── CONTRIBUTING.md          # Guidelines for contributing to the project
+├── LICENSE                  # MIT-0 license file
+├── README.md               # This file - project documentation
+├── requirements.txt        # Python dependencies
+├── configs/                # Configuration files directory
+├── data/                   # Data storage directory
+│   ├── processed/          # Processed data files
+│   │   └── processed1.csv  # Sample processed dataset
+│   ├── raw/               # Raw data files
+│   │   └── raw1.csv       # Sample raw dataset
+│   └── schemas/           # Data schema definitions
+│       └── schema1.txt    # Sample data schema
+├── docs/                  # Documentation directory
+├── docker/                # Docker configuration files
+├── evaluations/           # Model evaluation scripts and results
+├── prompts/               # Prompt templates and experiments
+│   ├── prompt-templates/   # Production prompt templates
+│   │   └── template-a.txt  # Sample prompt template
+│   └── prompt-templates-exp/ # Experimental prompt templates
+│       └── template-a.txt    # Experimental template
+├── src/                   # Source code directory
+│   ├── ask-bedrock-with-rag.py  # Main script for querying with RAG
+│   ├── load-data-to-opensearch.py # Script for loading data into OpenSearch
+│   └── utils/             # Utility modules
+│       ├── __init__.py    # Python package initialization
+│       ├── dataset.py     # Dataset handling utilities
+│       ├── opensearch.py  # OpenSearch connection and operations
+│       └── secret.py      # Secret management utilities
+├── terraform/             # Infrastructure as Code
+│   ├── bedrock-iam.tf     # IAM roles and policies for Bedrock
+│   ├── opensearch.tf      # OpenSearch cluster configuration
+│   ├── provider.tf        # Terraform AWS provider configuration
+│   ├── secret.tf          # AWS Secrets Manager configuration
+│   └── variables.tf       # Terraform variables definition
+└── tests/                 # Test files directory
+```
+
 Anthropic:
 
 - Claude v2 `python ./ask-bedrock-with-rag.py --ask "How will AI will change our every day life?"`
